@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidLesson1</string>
+    <string name="edit_message">Enter your message</string>
+    <string name="button_send">Send</string>
+    <string name="enter_name">Enter student\'s name</string>
+    <string name="enter_grade">Enter student\'s grade</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
