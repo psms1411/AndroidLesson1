@@ -30,7 +30,7 @@ public class Main2Activity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_main2, ACTIVITY_CHOICE));
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ACTIVITY_CHOICE));
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         getListView().setTextFilterEnabled(true);
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -39,6 +39,7 @@ public class Main2Activity extends ListActivity {
                 switch (i) {
                     case 0:
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.android.com/")));
+                        finish();  /** Finish the current one and push the old one into the stack **/
                         break;
                     case 1:
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people/")));
@@ -56,6 +57,7 @@ public class Main2Activity extends ListActivity {
                         break;
                     default: break;
                 }
+
             }
         });
     }
