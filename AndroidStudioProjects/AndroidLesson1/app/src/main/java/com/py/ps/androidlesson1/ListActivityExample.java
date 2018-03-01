@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class Main2Activity extends ListActivity {
+public class ListActivityExample extends ListActivity {
     static final String[] ACTIVITY_CHOICE = new String[] {
             "Open Website Example",
             "Open Contacts",
@@ -49,7 +49,6 @@ public class Main2Activity extends ListActivity {
                         break;
                     case 3:
                         Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-                        intent.putExtra(SearchManager.QUERY, searchTerm);
                         startActivity(intent);
                         break;
                     case 4:

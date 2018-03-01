@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-public class MapsActivity extends Activity {
+public class GoogleVoiceActivity extends Activity {
 
     private TextView textView;
     private int RECOGNIGER_EXAMPLE = 999;
