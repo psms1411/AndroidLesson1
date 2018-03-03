@@ -61,7 +61,12 @@
         <activity
             android:name=".PressAndPlay"
             android:label="@string/title_activity_press_and_play"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EdgeDetectionActivity"
+            android:label="@string/title_activity_edge_detection"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BackgroundTimerActivity"></activity>
     </application>
 
 </manifest>
