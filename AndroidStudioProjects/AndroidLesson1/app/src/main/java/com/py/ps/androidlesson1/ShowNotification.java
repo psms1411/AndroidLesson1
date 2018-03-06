@@ -1,11 +1,13 @@
 package com.py.ps.androidlesson1;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
@@ -16,6 +18,7 @@ public class ShowNotification extends AppCompatActivity {
 
     private NotificationManager nManager;
     private static String Channel_ID = "1000";
+    private static int Notification_ID = 1212;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +53,42 @@ public class ShowNotification extends AppCompatActivity {
                 builder.setContentText("Content Text");
                 builder.setContentIntent(pIntent);
 
+
+                //INBOX STYLE NOTIFICATION
+                android.support.v4.app.NotificationCompat.InboxStyle inboxStyle =
+                        new android.support.v4.app.NotificationCompat.InboxStyle();
+
+                builder.setStyle(inboxStyle);
+
+                int total = 5;
+                for(int i=0; i<total ; i++){
+                    inboxStyle.addLine("Subevent #"+i);
+                }
+
                 //Create a channel and register with the system
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    // Create the NotificationChannel
+                    CharSequence name = getString(R.string.channel_name);
+                    String description = getString(R.string.channel_description);
+                    int importance = NotificationManager.IMPORTANCE_DEFAULT;
+                    NotificationChannel mChannel = new NotificationChannel(Channel_ID, name, importance);
+                    mChannel.setDescription(description);
+                    // Register the channel with the system; you can't change the importance
+                    // or other notification behaviors after this
+                    nManager.createNotificationChannel(mChannel);
+                }
 
-                nManager.notify();
-
+                nManager.notify(Notification_ID, builder.build());
+                //nManager.notify();
             }
         });
 
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nManager.cancel(Notification_ID);
+            }
+        });
     }
 }
